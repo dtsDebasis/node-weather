@@ -51,7 +51,7 @@ app.get('/weather', (req, res)=>{
                     error
                 })
         } else {
-            forecast(lat, long, (error, {temperature, precipProbability} = {})=>{
+            forecast(lat, long, (error, {summary, temperatureHigh, temperatureLow, windSpeed, temperature,  precipProbability} = {})=>{
                 if (error) {
                     return res.send({
                       error
@@ -60,7 +60,7 @@ app.get('/weather', (req, res)=>{
                     res.send({
                         address,
                         place_name,
-                        "forecast" : "It is currently "+temperature+" degrees out there, and "+ precipProbability+"% chance of rain"
+                        "forecast" : summary+" Till now today's highest temerature is "+temperatureHigh+" degree and lowest temerature is "+temperatureLow+". Wind speed is "+windSpeed+". It is currently "+temperature+" degrees out there, and "+ precipProbability+"% chance of rain"
                     })
                 }
             })

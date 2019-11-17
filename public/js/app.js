@@ -25,7 +25,7 @@ weatherForm.addEventListener('submit', (e)=>{
        }
        const {forecast, place_name} = data
        error.textContent = ''
-       responseText.textContent = place_name+'. '+forecast
+       responseText.textContent = "In "+place_name+' '+forecast
        console.log(data)
     })
  })

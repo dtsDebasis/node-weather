@@ -13,7 +13,12 @@ const forecast = (lat, long, callback) => {
                 callback("Unable to find any forecast", undefined)
             } else {
                 const {temperature, precipProbability} = body.currently;
+                const {summary = '', temperatureHigh = '', temperatureLow = '', windSpeed = ''} = body.daily.data[0];
                 const returnForecast = {
+                    summary,
+                    temperatureHigh,
+                    temperatureLow,
+                    windSpeed,
                     temperature,
                     precipProbability
                 }
